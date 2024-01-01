@@ -1,6 +1,6 @@
 const express = require("express");
-const {model} = require("mongoose");
 const render = require("../services/render")
+const controller = require("../controller/controller")
 
 const route = express.Router()
 
@@ -20,6 +20,12 @@ route.get('/add-user', render.add_user)
  * @description update user
  * @method /update-user
  */
-route.get('/update-user',render.update_user)
+route.get('/update-user', render.update_user)
+
+// API
+route.get('/api/user', controller.find);
+route.post('/api/user', controller.create);
+route.put('/api/user/:id', controller.update);
+route.delete('/api/user/:id', controller.delete);
 
 module.exports = route

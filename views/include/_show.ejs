@@ -1,15 +1,27 @@
-<tr>
-    <td>1</td>
-    <td>Person</td>
-    <td>person@gmail.com</td>
-    <td>Male</td>
-    <td>Active</td>
-    <td>
-        <a href="/update-user" class="btw border-shadow update">
-            <span class="text-gradient"><i class="fa-solid fa-user-pen"></i></span>
-        </a>
-        <a href="" class="btw border-shadow update">
-            <span class="text-gradient"><i class="fa-solid fa-user-xmark"></i></span>
-        </a>
-    </td>
- </tr>
+<% for(var i=0; i<data.length; i++){ %>
+    <tr>
+        <td>
+            <%=i+1%>
+        </td>
+        <td>
+            <%=data[i].name%>
+        </td>
+        <td class="mail">
+            <%=data[i].email%>
+        </td>
+        <td>
+            <%=data[i].gender%>
+        </td>
+        <td>
+            <%=data[i].status%>
+        </td>
+        <td>
+            <a href="/update-user?id=<%=data[i]._id%>" class="btw border-shadow update">
+                <span class="text-gradient"><i class="fa-solid fa-user-pen"></i></span>
+            </a>
+            <a href="" class="btw border-shadow delete" data-id="<%= data[i]._id %>" row-id="<%=i%>">
+                <span class="text-gradient"><i class="fa-solid fa-user-xmark"></i></span>
+            </a>
+        </td>
+    </tr>
+    <%}%>
